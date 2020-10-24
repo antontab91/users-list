@@ -1,10 +1,15 @@
 import React from 'react';
-import Main from './users/Main';
+import { Provider } from 'react-redux'
+
+import Routes from './Routes'
+import { store } from './store'
 
 
 const App = () => {
   return (
-    <Main />
+    <Provider store={store}>
+      <Routes />
+    </Provider>
   )
 }
 

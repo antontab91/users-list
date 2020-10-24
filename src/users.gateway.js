@@ -1,20 +1,37 @@
-const baseUrl = "http://77.120.241.80:8911/api/users";
+import axios from 'axios';
+
+const endpoint = 'http://5f947c3e9ecf720016bfc741.mockapi.io/api/v1/'
+// const endpoint = "http://77.120.241.80:8911/api";
+const baseUrl = `${endpoint}/users`;
+
 const headers = {
   "Content-type": "application/json;charset=utf-8",
 }
 
-export const fetchUsersList = () => {
-  return fetch((baseUrl))
+// const LIM
+
+export const fetchUsers = (page, limit) => {
+  return axios((`${baseUrl}?page=${page}&limit=${limit}`))
     .then((response) => {
-      if (response.ok) {
-        return response.json();
+      if (response.statusText === 'OK') {
+        return response.data;
+      }
+      throw new Error("failed to load users list");
+    })
+}
+
+export const fetchUser = (userId) => {
+  return axios((`${baseUrl}/${userId}`))
+    .then((response) => {
+      if (response.statusText === 'OK') {
+        return response.data;
       }
       throw new Error("failed to load users list");
     })
 }
 
 export const createUser = (userData) => {
-  return fetch(baseUrl, {
+  return axios(baseUrl, {
     method: "POST",
     headers,
     body: JSON.stringify(userData),
@@ -27,7 +44,7 @@ export const createUser = (userData) => {
 }
 
 export const updateUser = (userId, userData) => {
-  return fetch(`${baseUrl}/${userId}`, {
+  return axios(`${baseUrl}/${userId}`, {
     method: "PUT",
     headers,
     body: JSON.stringify(userData),
@@ -40,7 +57,7 @@ export const updateUser = (userId, userData) => {
 }
 
 export const deleteUser = (userId) => {
-  return fetch(`${baseUrl}/${userId}`, {
+  return axios(`${baseUrl}/${userId}`, {
     method: "DELETE",
   }).then((response) => {
     if (!response.ok) {
@@ -48,6 +65,3 @@ export const deleteUser = (userId) => {
     }
   })
 }
-
-
-// console.log(fetchUsersList())
