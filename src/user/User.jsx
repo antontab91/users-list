@@ -12,7 +12,13 @@ const User = (props) => {
 
   const userId = props.match.params.id;
 
-  const user = useSelector((state) => selectUser(state, { id: userId }));
+
+  const user = useSelector((state) => {
+    console.log(state)
+    return selectUser(state, { id: userId })
+  });
+
+  console.log(user, props, isUserExist)
 
   const isUserExist = !!user;
 
@@ -23,14 +29,17 @@ const User = (props) => {
 
   }, [dispatch, userId, isUserExist])
 
+
   return (
     <div>
       <Link to={ROUTES.USER_LIST}>Back to list</Link>
       {
         user ? (
           <div className="User-user">
-            <div>{user.firstName}</div>
-            <div>{user.lastName}</div>
+            {/* <div>{user.firstName}</div>
+            <div>{user.lastName}</div> */}
+            <div>{user.name}</div>
+            <div>{user.surname}</div>
           </div>
         ) : <div className="">Loading</div>
       }

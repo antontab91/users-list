@@ -1,4 +1,3 @@
-import { from } from "core-js/fn/array";
 import React from "react";
 import {
   BrowserRouter as Router,

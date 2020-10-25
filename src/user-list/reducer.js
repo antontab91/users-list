@@ -22,18 +22,22 @@ export const usersReducer = (state = initialState, action) => {
       const userIds = state.users.map(user => user.id);
       const index = userIds.indexOf(user.id);
 
+      let newUsers = [...state.users];
+
       if (index > -1) {
-        state.users.splice(index, 1);
+        newUsers = state.users.splice(index, 1);
       }
 
-      state.users.push(user);
-
-      return state;
+      return {
+        ...state,
+        users: [...newUsers, user]
+      };
     }
 
 
 
-    default:
+    default: {
       return state
+    }
   }
 }
