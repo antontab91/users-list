@@ -12,13 +12,10 @@ const User = (props) => {
 
   const userId = props.match.params.id;
 
-
   const user = useSelector((state) => {
-    console.log(state)
     return selectUser(state, { id: userId })
   });
 
-  console.log(user, props, isUserExist)
 
   const isUserExist = !!user;
 

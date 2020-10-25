@@ -20,16 +20,15 @@ export const selectUsers = (state) => selectUsersState(state).users;
 
 
 export const selectUser = (state, props) => {
-  console.log(state, props);
+
   const id = props.id;
 
   if (!id) return;
 
   const users = selectUsers(state)
-  console.log(users);
 
   return users.find((user) => {
-    console.log(user, id);
+
     return user.id == id
   });
 }
