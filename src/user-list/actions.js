@@ -23,9 +23,9 @@ const userReceived = (user) => {
   }
 }
 
-export const getUsers = (page, limit) => {
+export const getUsers = () => {
   return function (dispatch) {
-    return fetchUsers(page, limit)
+    return fetchUsers()
       .then((users) => {
         dispatch(usersReceived(users))
       })

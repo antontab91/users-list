@@ -10,8 +10,8 @@ const headers = {
 
 // const LIM
 
-export const fetchUsers = (page, limit) => {
-  return axios((`${baseUrl}?page=${page}&limit=${limit}`))
+export const fetchUsers = () => {
+  return axios((`${baseUrl}`))
     .then((response) => {
       if (response.statusText === 'OK') {
         return response.data;
