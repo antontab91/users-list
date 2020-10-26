@@ -1,0 +1,13 @@
+.back_to_list{
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  background: darkcyan;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  &:hover{
+    background-color: yellowgreen;
+  }
+}
