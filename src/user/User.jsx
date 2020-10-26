@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../constants';
 import { selectUser } from '../user-list/selectors';
 import { getUser, updateUser } from '../user-list/actions';
-import './user.scss';
+
 
 const User = (props) => {
   const dispatch = useDispatch();
