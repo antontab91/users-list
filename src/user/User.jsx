@@ -27,6 +27,14 @@ const User = (props) => {
   }, [dispatch, userId, isUserExist])
 
 
+  const handleChangeInputValue = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...newUser,
+      [name]: value,
+    })
+  }
+
   return (
     <div>
       <Link className="back_to_list" to={ROUTES.USER_LIST}>Back to list</Link>
@@ -47,7 +55,7 @@ const User = (props) => {
                 <input className="create-user__input"
                   type="text"
                   name="name"
-                  // onChange={handleChangeInputValue}
+                  onChange={handleChangeInputValue}
                   value={user.name}
                 />
               </div>
@@ -57,7 +65,7 @@ const User = (props) => {
                 <input className="create-user__input"
                   type="text"
                   name="surname"
-                  // onChange={handleChangeInputValue}
+                  onChange={handleChangeInputValue}
                   value={user.surname}
                 />
               </div>
@@ -67,7 +75,7 @@ const User = (props) => {
                 <input className="create-user__input"
                   type="text"
                   name="desc"
-                  // onChange={handleChangeInputValue}
+                  onChange={handleChangeInputValue}
                   value={user.desc}
                 />
               </div>
