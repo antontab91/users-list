@@ -58,7 +58,7 @@ export const updateUser = (userId, userData) => {
 }
 
 export const deleteUser = (userId) => {
-  return axios(`${baseUrl}/${userId}`, {
+  return fetch(`${baseUrl}/${userId}`, {
     method: "DELETE",
   }).then((response) => {
     if (!response.ok) {

@@ -55,3 +55,11 @@ export const createUser = ({ name, surname, desc }) => {
   }
 }
 
+export const deleteUser = (taskId) => {
+  return function (dispatch) {
+    return usersGateway.deleteUser(taskId)
+      .then(() => {
+        return dispatch(getUsers())
+      })
+  }
+}

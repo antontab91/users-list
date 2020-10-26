@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import CreateUser from '../create-user/CreateUser'
 import { ROUTES } from '../constants';
-import { getUsers } from './actions';
+import { getUsers, deleteUser } from './actions';
 import { selectUsers } from './selectors'; 1
 import './userList.scss';
 
@@ -26,6 +26,10 @@ const UserList = () => {
   const goNext = () => {
     setPage(page + 1)
   };
+
+  const handleDeleteUser = (userId) => {
+    dispatch(deleteUser(userId))
+  }
 
   const usersPerPage = 5;
   const totalUsers = users.length; // общее количество юзеров 
@@ -49,7 +53,10 @@ const UserList = () => {
                     <div className="user__name">{user.name}</div>
                     <div className="user__surname">{user.surname}</div>
                   </div>
-                  <div className="user__delete-btn">
+                  <div onClick={(e) => {
+                    e.preventDefault()
+                    handleDeleteUser(user.id)
+                  }} className="user__delete-btn">
                     delete
                 </div>
                 </div>
