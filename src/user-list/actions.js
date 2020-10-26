@@ -66,7 +66,7 @@ export const deleteUser = (userId) => {
 }
 
 
-export const updateUser = (userId) => {
+export const updateUser = (userId, data) => {
   return function (dispatch, getState) {
     const state = getState();
     const usersList = selectUsers(state);
@@ -75,9 +75,9 @@ export const updateUser = (userId) => {
     })
     const updatedUser = {
       ...user,
-      name: user.name,
-      surname: user.surname,
-      desc: user.desc,
+      name: data.name,
+      surname: data.surname,
+      desc: data.desc,
 
     }
     console.log(updatedUser)
