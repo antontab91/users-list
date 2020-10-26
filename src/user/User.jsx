@@ -34,10 +34,55 @@ const User = (props) => {
         user
           ?
           <div className="user-page">
-            <div className="user-page__name">{user.name}</div>
-            <div className="user-page__surname">{user.surname}</div>
+            {/* <div className="user-page__name">{user.name}</div>
+            <div className="user-page__surname">{user.surname}</div> */}
+
+            <form className="create-user"
+            // onSubmit={handleFormSubmit}
+            >
+              <h1 className="create-user__title">{`Please update this user (id: ${userId} ^_^) `}</h1>
+              <div className="create-user__form-control">
+                <label className="create-user__label"
+                  htmlFor="name">First Name </label>
+                <input className="create-user__input"
+                  type="text"
+                  name="name"
+                // onChange={handleChangeInputValue}
+                // value={newUser.name}
+                />
+              </div>
+              <div className="create-user__form-control">
+                <label className="create-user__label"
+                  htmlFor="surname">Last Name </label>
+                <input className="create-user__input"
+                  type="text"
+                  name="surname"
+                // onChange={handleChangeInputValue}
+                // value={newUser.surname}
+                />
+              </div>
+              <div className="create-user__form-control">
+                <label className="create-user__label"
+                  htmlFor="desc">Description </label>
+                <input className="create-user__input"
+                  type="text"
+                  name="desc"
+                // onChange={handleChangeInputValue}
+                // value={newUser.desc}
+                />
+              </div>
+              <div className="create-user__form-control">
+
+                <button className="btn create-user__btn"
+                >
+                  Create
+                </button>
+              </div>
+            </form>
+
+
           </div>
-          : <div className="loading">Loading</div>
+          : <div className="loading">Update</div>
       }
     </div>
   )
