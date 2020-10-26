@@ -66,15 +66,15 @@ const UserList = () => {
           onClick={goPrev}
           disabled={isPrevPageAvailable}
         >
-          {isPrevPageAvailable ? "" : "←"}
+          {isPrevPageAvailable ? "" : "← prev"}
         </button>
-        <div>page: {page + 1}</div>
+        <div className="cur">page: {page + 1}</div>
         <button
           className="btn"
           onClick={goNext}
           disabled={isNextPageAvailable}
         >
-          {isNextPageAvailable ? "" : "→"}
+          {isNextPageAvailable ? "" : "next→"}
         </button>
       </div>
     </>
