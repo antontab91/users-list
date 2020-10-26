@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { ROUTES } from '../constants';
 import { selectUser } from '../user-list/selectors';
-import { getUser } from '../user-list/actions';
+import { getUser, updateUser } from '../user-list/actions';
 import './user.scss';
 
 const User = (props) => {
@@ -37,8 +37,7 @@ const User = (props) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log('dsd');
-    dispatch(createUser(newUser))
+    dispatch(updateUser(userId, stateUser))
   }
 
   return (

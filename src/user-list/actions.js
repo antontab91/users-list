@@ -1,4 +1,5 @@
 import *as usersGateway from '../users.gateway'
+import { selectUsers } from '../user-list/selectors';
 
 
 export const USERS_RECEIVED = "USERS/USERS_RECEIVED";
@@ -42,22 +43,45 @@ export const getUser = (userId) => {
 
 export const createUser = ({ name, surname, desc }) => {
   return function (dispatch) {
-    const taskData = {
+    const userData = {
       name,
       surname,
       desc,
     };
 
-    return usersGateway.createUser(taskData)
+    return usersGateway.createUser(userData)
       .then(() => {
         return dispatch(getUsers())
       })
   }
 }
 
-export const deleteUser = (taskId) => {
+export const deleteUser = (userId) => {
   return function (dispatch) {
-    return usersGateway.deleteUser(taskId)
+    return usersGateway.deleteUser(userId)
+      .then(() => {
+        return dispatch(getUsers())
+      })
+  }
+}
+
+
+export const updateUser = (userId) => {
+  return function (dispatch, getState) {
+    const state = getState();
+    const usersList = selectUsers(state);
+    const user = usersList.find((user) => {
+      return user.id === userId;
+    })
+
+    const updatedUser = {
+      ...user,
+      name: user.name,
+      surname: user.surname,
+      desc: user.desc,
+
+    }
+    return usersGateway.updateTask(userId, updatedUser)
       .then(() => {
         return dispatch(getUsers())
       })

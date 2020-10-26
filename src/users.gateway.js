@@ -8,8 +8,6 @@ const headers = {
   "Content-type": "application/json;charset=utf-8",
 }
 
-// const LIM
-
 export const fetchUsers = () => {
   return axios((`${baseUrl}`))
     .then((response) => {
@@ -45,7 +43,7 @@ export const createUser = (userData) => {
 
 
 export const updateUser = (userId, userData) => {
-  return axios(`${baseUrl}/${userId}`, {
+  return fetch(`${baseUrl}/${userId}`, {
     method: "PUT",
     headers,
     body: JSON.stringify(userData),
