@@ -29,6 +29,7 @@
     background: brown;
     .user__data{
       color: white;
+      font-size: 30px;
     }
 
   }
@@ -37,8 +38,10 @@
       display: flex;
       padding: 25px;
       color: blue;
+  }
 
-      
+  &__name{
+    padding-right: 10px;
   }
 
   &__delete-btn{
@@ -47,11 +50,12 @@
     right:0;
     cursor: pointer;
     font-weight: bold;
-    padding: 2px;
+    padding: 3px;
     transition: all ease-in-out .3s;
      &:hover{
        color: white;
-       transform: rotate(90deg);
+       transform: rotate(10deg);
+       font-size: 30px;
      }
   }
 }
@@ -62,11 +66,15 @@
   justify-content: center;
   .btn{
     margin: 15px;
-    width: 100px;
-    height: 50px;
+    width: 120px;
+    height: 70px;
     font-size: 30px;
     background: cornflowerblue;
-    
+    transition: all ease-in-out .2s;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+    &:hover{
+       box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    }
   }
   .cur{
     font-size: 50px;

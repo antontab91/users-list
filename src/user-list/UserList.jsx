@@ -50,7 +50,7 @@ const UserList = () => {
                     <div className="user__surname">{user.surname}</div>
                   </div>
                   <div className="user__delete-btn">
-                    [X]
+                    delete
                 </div>
                 </div>
               </Link>

@@ -29,15 +29,15 @@ const User = (props) => {
 
   return (
     <div>
-      <Link to={ROUTES.USER_LIST}>Back to list</Link>
+      <Link className="back_to_list" to={ROUTES.USER_LIST}>Back to list</Link>
       {
         user
           ?
           <div className="user-page">
-            <div>{user.name}</div>
-            <div>{user.surname}</div>
+            <div className="user-page__name">{user.name}</div>
+            <div className="user-page__surname">{user.surname}</div>
           </div>
-          : <div className="">Loading</div>
+          : <div className="loading">Loading</div>
       }
     </div>
   )
