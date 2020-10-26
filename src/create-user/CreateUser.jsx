@@ -36,35 +36,41 @@ const CreateUser = () => {
   }
 
   return (
-    <div className="create-user">
-      <form
-        onSubmit={handleFormSubmit}
-      >
+
+    <form
+      onSubmit={handleFormSubmit}
+    >
+      <h1>Create User</h1>
+      <div className="form-control">
         <input className="create-user__input"
           type="text"
           name="name"
           onChange={handleChangeInputValue}
           value={newUser.name}
         />
+      </div>
+      <div className="form-control">
         <input className="create-user__input"
           type="text"
           name="surname"
           onChange={handleChangeInputValue}
           value={newUser.surname}
         />
+      </div>
+      <div className="form-control">
         <input className="create-user__input"
           type="text"
           name="desc"
           onChange={handleChangeInputValue}
           value={newUser.desc}
         />
-        <button className="btn create-task__btn"
-
-        >
-          Create
+      </div>
+      <button className="btn create-task__btn"
+      >
+        Create
       </button>
-      </form>
-    </div>
+    </form>
+
   )
 }
 
