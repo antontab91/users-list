@@ -43,10 +43,8 @@ const UserList = () => {
           return (
             <Link key={user.id} to={`${ROUTES.USER}${user.id}`}>
               <div className="user">
-                <div>{user.firstName}</div>
-                <div>{user.lastName}</div>
-                {/* <div>{user.name}</div>
-                <div>{user.surname}</div> */}
+                <div>{user.name}</div>
+                <div>{user.surname}</div>
               </div>
             </Link>
           )

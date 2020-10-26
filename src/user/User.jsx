@@ -33,10 +33,8 @@ const User = (props) => {
       {
         user ? (
           <div className="User-user">
-            <div>{user.firstName}</div>
-            <div>{user.lastName}</div>
-            {/* <div>{user.name}</div>
-            <div>{user.surname}</div> */}
+            <div>{user.name}</div>
+            <div>{user.surname}</div>
           </div>
         ) : <div className="">Loading</div>
       }

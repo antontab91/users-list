@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CreateUser = () => {
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+
   return (
     <div className="create-user">
       <input className="create-user__input"

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const endpoint = 'http://5f947c3e9ecf720016bfc741.mockapi.io/api/v1/'
+const endpoint = 'https://5f96176711ab98001603a41e.mockapi.io/api/v1/'
 // const endpoint = "http://77.120.241.80:8911/api";
 const baseUrl = `${endpoint}/users`;
 
