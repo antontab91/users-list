@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const User = (props) => {
   const user = useSelector((state) => {
     return selectUser(state, { id: userId })
   });
-
+  const [stateUser, updateStateUser] = useState(user);
 
   const isUserExist = !!user;
 
@@ -29,10 +29,16 @@ const User = (props) => {
 
   const handleChangeInputValue = (e) => {
     const { name, value } = e.target;
-    setUser({
-      ...newUser,
+    updateStateUser({
+      ...stateUser,
       [name]: value,
     })
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('dsd');
+    dispatch(createUser(newUser))
   }
 
   return (
@@ -42,41 +48,36 @@ const User = (props) => {
         user
           ?
           <div className="user-page">
-            {/* <div className="user-page__name">{user.name}</div>
-            <div className="user-page__surname">{user.surname}</div> */}
 
             <form className="create-user"
-            // onSubmit={handleFormSubmit}
+              onSubmit={handleFormSubmit}
             >
               <h1 className="create-user__title">{`Please update this user (id: ${userId} ^_^) `}</h1>
               <div className="create-user__form-control">
-                <label className="create-user__label"
-                  htmlFor="name">First Name </label>
+
                 <input className="create-user__input"
                   type="text"
                   name="name"
                   onChange={handleChangeInputValue}
-                  value={user.name}
+                  value={stateUser.name}
                 />
               </div>
               <div className="create-user__form-control">
-                <label className="create-user__label"
-                  htmlFor="surname">Last Name </label>
+
                 <input className="create-user__input"
                   type="text"
                   name="surname"
                   onChange={handleChangeInputValue}
-                  value={user.surname}
+                  value={stateUser.surname}
                 />
               </div>
               <div className="create-user__form-control">
-                <label className="create-user__label"
-                  htmlFor="desc">Description </label>
+
                 <input className="create-user__input"
                   type="text"
                   name="desc"
                   onChange={handleChangeInputValue}
-                  value={user.desc}
+                  value={stateUser.desc}
                 />
               </div>
               <div className="create-user__form-control">
