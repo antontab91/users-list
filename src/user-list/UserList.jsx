@@ -37,40 +37,39 @@ const UserList = () => {
 
 
   return (
-    <div className="">
+    <>
       <CreateUser />
       {
         usersOnPage.map(user => {
           return (
             <Link key={user.id} to={`${ROUTES.USER}${user.id}`}>
               <div className="user">
-                <div>{user.name}</div>
-                <div>{user.surname}</div>
+                <div className="user__name">{user.name}</div>
+                <div className="user__surname">{user.surname}</div>
               </div>
             </Link>
           )
         })
       }
-      <div>
-        <div>
-          <button
-            className="btn"
-            onClick={goPrev}
-            disabled={isPrevPageAvailable}
-          >
-            {isPrevPageAvailable ? "" : "←"}
-          </button>
-          <div>page: {page + 1}</div>
-          <button
-            className="btn"
-            onClick={goNext}
-            disabled={isNextPageAvailable}
-          >
-            {isNextPageAvailable ? "" : "→"}
-          </button>
-        </div>
+
+      <div className="nav-btns">
+        <button
+          className="btn"
+          onClick={goPrev}
+          disabled={isPrevPageAvailable}
+        >
+          {isPrevPageAvailable ? "" : "←"}
+        </button>
+        <div>page: {page + 1}</div>
+        <button
+          className="btn"
+          onClick={goNext}
+          disabled={isNextPageAvailable}
+        >
+          {isNextPageAvailable ? "" : "→"}
+        </button>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -37,11 +37,13 @@ const CreateUser = () => {
 
   return (
 
-    <form
+    <form className="create-user__form"
       onSubmit={handleFormSubmit}
     >
-      <h1>Create User</h1>
-      <div className="form-control">
+      <h1 className="create-user__title">Create User</h1>
+      <div className="create-user__form-control">
+        <label className="create-user__label"
+          htmlFor="name">First Name </label>
         <input className="create-user__input"
           type="text"
           name="name"
@@ -49,7 +51,9 @@ const CreateUser = () => {
           value={newUser.name}
         />
       </div>
-      <div className="form-control">
+      <div className="create-user__form-control">
+        <label className="create-user__label"
+          htmlFor="surname">Last Name </label>
         <input className="create-user__input"
           type="text"
           name="surname"
@@ -57,7 +61,9 @@ const CreateUser = () => {
           value={newUser.surname}
         />
       </div>
-      <div className="form-control">
+      <div className="create-user__form-control">
+        <label className="create-user__label"
+          htmlFor="desc">Description </label>
         <input className="create-user__input"
           type="text"
           name="desc"
@@ -65,7 +71,7 @@ const CreateUser = () => {
           value={newUser.desc}
         />
       </div>
-      <button className="btn create-task__btn"
+      <button className="btn create-user__btn"
       >
         Create
       </button>
