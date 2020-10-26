@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../user-list/actions';
+import './CreateUser.scss';
 
 
 const CreateUser = () => {
