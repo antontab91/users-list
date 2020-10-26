@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const endpoint = 'http://5f947c3e9ecf720016bfc741.mockapi.io/api/v1/'
-const endpoint = "http://77.120.241.80:8911/api";
+const endpoint = 'http://5f947c3e9ecf720016bfc741.mockapi.io/api/v1/'
+// const endpoint = "http://77.120.241.80:8911/api";
 const baseUrl = `${endpoint}/users`;
 
 const headers = {
@@ -21,7 +21,7 @@ export const fetchUsers = () => {
 }
 
 export const fetchUser = (userId) => {
-  return axios((`http://77.120.241.80:8911/api/user/${userId}`))
+  return axios((`${endpoint}/user/${userId}`))
     .then((response) => {
       if (response.statusText === 'OK') {
         return response.data;

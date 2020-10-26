@@ -43,10 +43,10 @@ const UserList = () => {
           return (
             <Link key={user.id} to={`${ROUTES.USER}${user.id}`}>
               <div className="user">
-                {/* <div>{user.firstName}</div>
-                <div>{user.lastName}</div> */}
-                <div>{user.name}</div>
-                <div>{user.surname}</div>
+                <div>{user.firstName}</div>
+                <div>{user.lastName}</div>
+                {/* <div>{user.name}</div>
+                <div>{user.surname}</div> */}
               </div>
             </Link>
           )
@@ -58,13 +58,6 @@ const UserList = () => {
           <div>page: {page}</div>
           <div onClick={changePage} data-page={isNextPageAvailable ? page + 1 : page}>next</div>
         </div>
-        <div>
-          <div>{limit}</div>
-          {
-            AVAILABLE_LIMITS.map(item => <div key={item} onClick={changeLimit} data-limit={item}>{item}</div>)
-          }
-        </div>
-
       </div>
     </div>
   )
