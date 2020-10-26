@@ -4,7 +4,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  a{
+    width: 100%;
+  }
 }
+
 
 .user {
   display: flex;
@@ -12,9 +17,25 @@
   width: 100%;
   padding: 10px;
   font-size: 20px;
+  height: 70px;
+  background: salmon;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin:5px auto;
   
-
   &__data{
       display: flex;
+      padding: 25px;
   }
+
+  &__delete-btn{
+    position: absolute;
+    top: 0 ;
+    right:0;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 2px;
+  }
+
 }
