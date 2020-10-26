@@ -73,7 +73,6 @@ export const updateUser = (userId) => {
     const user = usersList.find((user) => {
       return user.id === userId;
     })
-
     const updatedUser = {
       ...user,
       name: user.name,
@@ -81,7 +80,8 @@ export const updateUser = (userId) => {
       desc: user.desc,
 
     }
-    return usersGateway.updateTask(userId, updatedUser)
+    console.log(updatedUser)
+    return usersGateway.updateUser(userId, updatedUser)
       .then(() => {
         return dispatch(getUsers())
       })

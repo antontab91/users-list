@@ -39,6 +39,7 @@ const User = (props) => {
     e.preventDefault();
     dispatch(updateUser(userId, stateUser))
   }
+  console.log(stateUser)
 
   return (
     <div>
