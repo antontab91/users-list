@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import CreateUser from '../create-user/CreateUser'
 import { ROUTES } from '../constants';
 import { getUsers } from './actions';
 import { selectUsers } from './selectors'; 1
@@ -36,6 +37,7 @@ const UserList = () => {
 
   return (
     <div className="">
+      <CreateUser />
       {
         users.map(user => {
           return (
