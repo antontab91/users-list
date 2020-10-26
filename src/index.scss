@@ -8,10 +8,16 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-input, a{
+input{
+    outline: none;
+}
+button, a{
   display: block;
   outline: none;
   cursor: pointer;
+  box-shadow: none;
+  border: none;
+  text-decoration:  none;
 }
 
 #root{

@@ -39,18 +39,26 @@ const UserList = () => {
   return (
     <>
       <CreateUser />
-      {
-        usersOnPage.map(user => {
-          return (
-            <Link key={user.id} to={`${ROUTES.USER}${user.id}`}>
-              <div className="user">
-                <div className="user__name">{user.name}</div>
-                <div className="user__surname">{user.surname}</div>
-              </div>
-            </Link>
-          )
-        })
-      }
+      <div className="all-users">
+        {
+          usersOnPage.map(user => {
+            return (
+              <Link key={user.id} to={`${ROUTES.USER}${user.id}`}>
+                <div className="user">
+                  <div className="user__data">
+                    <div className="user__name">{user.name}</div>
+                    <div className="user__surname">{user.surname}</div>
+                  </div>
+                  <div className="user__delete-btn">
+                    X
+                </div>
+                </div>
+              </Link>
+            )
+          })
+        }
+
+      </div>
 
       <div className="nav-btns">
         <button

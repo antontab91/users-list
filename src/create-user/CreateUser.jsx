@@ -38,10 +38,10 @@ const CreateUser = () => {
 
   return (
 
-    <form className="create-user__form"
+    <form className="create-user"
       onSubmit={handleFormSubmit}
     >
-      <h1 className="create-user__title">Create User</h1>
+      <h1 className="create-user__title">Please create user</h1>
       <div className="create-user__form-control">
         <label className="create-user__label"
           htmlFor="name">First Name </label>
@@ -72,10 +72,13 @@ const CreateUser = () => {
           value={newUser.desc}
         />
       </div>
-      <button className="btn create-user__btn"
-      >
-        Create
+      <div className="create-user__form-control">
+
+        <button className="btn create-user__btn"
+        >
+          Create
       </button>
+      </div>
     </form>
 
   )

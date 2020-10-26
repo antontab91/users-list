@@ -33,7 +33,7 @@ const User = (props) => {
       {
         user
           ?
-          <div className="User-user">
+          <div className="user-page">
             <div>{user.name}</div>
             <div>{user.surname}</div>
           </div>
