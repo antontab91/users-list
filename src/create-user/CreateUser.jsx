@@ -1,23 +1,51 @@
 import React, { useState } from 'react';
 
 const CreateUser = () => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
+  const [newUser, setUser] = useState({
+    name: "",
+    surname: "",
+    desc: "",
+  });
+
+  const handleChangeInputValue = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...newUser,
+      [name]: value,
+    })
+  }
 
   return (
     <div className="create-user">
-      <input className="create-user__input"
-        type="text"
-        name="value"
-      // onChange={this.handleChangeInputValue}
-      // value={this.state.value}
-      />
-      <button className="btn create-task__btn"
-      // onClick={() => {
-      //   this.handleTaskCreate()
-      // }}
+      <form
+      // onSubmit = {}
       >
-        Create</button>
+        <input className="create-user__input"
+          type="text"
+          name="name"
+          onChange={handleChangeInputValue}
+          value={newUser.name}
+        />
+        <input className="create-user__input"
+          type="text"
+          name="surname"
+          onChange={handleChangeInputValue}
+          value={newUser.surname}
+        />
+        <input className="create-user__input"
+          type="text"
+          name="desc"
+          onChange={handleChangeInputValue}
+          value={newUser.desc}
+        />
+        <button className="btn create-task__btn"
+        // onClick={() => {
+        //   handleNewUserCreate()
+        // }}
+        >
+          Create
+      </button>
+      </form>
     </div>
   )
 }

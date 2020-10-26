@@ -8,38 +8,39 @@ import { getUsers } from './actions';
 import { selectUsers } from './selectors'; 1
 import './userList.scss';
 
-const AVAILABLE_LIMITS = [5, 10, 20];
 
 const UserList = () => {
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(AVAILABLE_LIMITS[0]);
-
-  const changeLimit = useCallback((event) => {
-    const currLimit = +event.target.dataset.limit;
-
-    setLimit(currLimit)
-  }, [])
-
-  const changePage = useCallback((event) => {
-    const currPage = +event.target.dataset.page;
-
-    setPage(currPage)
-  }, [])
 
   const users = useSelector(selectUsers);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUsers(page, limit))
-  }, [dispatch, page, limit]);
+    dispatch(getUsers(page))
+  }, [dispatch, page]);
 
-  const isNextPageAvailable = users.length === limit
+  const goPrev = () => {
+    setPage(page - 1)
+  };
+
+  const goNext = () => {
+    setPage(page + 1)
+  };
+
+  const usersPerPage = 5;
+  const totalUsers = users.length; // общее количество юзеров 
+  const firsIndexOnPage = page * usersPerPage; // индекс первого юзера , который показывается на странице 
+  const lastIndexOnPage = firsIndexOnPage + usersPerPage; // индекс последнего юзера , который показывается на странице 
+  const usersOnPage = users.slice(firsIndexOnPage, lastIndexOnPage); // с какого по какой индекс показываются юзеры на текущей странице
+  const isPrevPageAvailable = page === 1;
+  const isNextPageAvailable = page === Math.ceil(totalUsers / usersPerPage) - 1;
+
 
   return (
     <div className="">
       <CreateUser />
       {
-        users.map(user => {
+        usersOnPage.map(user => {
           return (
             <Link key={user.id} to={`${ROUTES.USER}${user.id}`}>
               <div className="user">
@@ -52,9 +53,21 @@ const UserList = () => {
       }
       <div>
         <div>
-          <div onClick={changePage} data-page={page > 1 ? page - 1 : 1}>prev</div>
+          <button
+            className="btn"
+            onClick={goPrev}
+            disabled={isPrevPageAvailable}
+          >
+            {isPrevPageAvailable ? "" : "←"}
+          </button>
           <div>page: {page}</div>
-          <div onClick={changePage} data-page={isNextPageAvailable ? page + 1 : page}>next</div>
+          <button
+            className="btn"
+            onClick={goNext}
+            disabled={isNextPageAvailable}
+          >
+            {isNextPageAvailable ? "" : "→"}
+          </button>
         </div>
       </div>
     </div>
