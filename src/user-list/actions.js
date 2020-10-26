@@ -80,7 +80,7 @@ export const updateUser = (userId, data) => {
       desc: data.desc,
 
     }
-    console.log(updatedUser)
+
     return usersGateway.updateUser(userId, updatedUser)
       .then(() => {
         return dispatch(getUsers())

@@ -24,7 +24,7 @@ const CreateUser = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (newUser.name !== "" && newUser.surname !== "" && newUser.desc !== "") {
-      console.log('dsd');
+
       dispatch(createUser(newUser))
       setUser({
         name: "",
