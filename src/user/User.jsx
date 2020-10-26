@@ -47,8 +47,8 @@ const User = (props) => {
                 <input className="create-user__input"
                   type="text"
                   name="name"
-                // onChange={handleChangeInputValue}
-                // value={newUser.name}
+                  // onChange={handleChangeInputValue}
+                  value={user.name}
                 />
               </div>
               <div className="create-user__form-control">
@@ -57,8 +57,8 @@ const User = (props) => {
                 <input className="create-user__input"
                   type="text"
                   name="surname"
-                // onChange={handleChangeInputValue}
-                // value={newUser.surname}
+                  // onChange={handleChangeInputValue}
+                  value={user.surname}
                 />
               </div>
               <div className="create-user__form-control">
@@ -67,15 +67,15 @@ const User = (props) => {
                 <input className="create-user__input"
                   type="text"
                   name="desc"
-                // onChange={handleChangeInputValue}
-                // value={newUser.desc}
+                  // onChange={handleChangeInputValue}
+                  value={user.desc}
                 />
               </div>
               <div className="create-user__form-control">
 
                 <button className="btn create-user__btn"
                 >
-                  Create
+                  Update
                 </button>
               </div>
             </form>
