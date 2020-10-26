@@ -15,10 +15,24 @@ const CreateUser = () => {
     })
   }
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (newUser.name !== "" && newUser.surname !== "" && newUser.desc !== "") {
+      console.log('dsd');
+      setUser({
+        name: "",
+        surname: "",
+        desc: "",
+      })
+    }
+
+    return null;
+  }
+
   return (
     <div className="create-user">
       <form
-      // onSubmit = {}
+        onSubmit={handleFormSubmit}
       >
         <input className="create-user__input"
           type="text"
@@ -39,9 +53,7 @@ const CreateUser = () => {
           value={newUser.desc}
         />
         <button className="btn create-task__btn"
-        // onClick={() => {
-        //   handleNewUserCreate()
-        // }}
+
         >
           Create
       </button>
