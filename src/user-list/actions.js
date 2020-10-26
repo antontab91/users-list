@@ -1,4 +1,4 @@
-import { fetchUsers, fetchUser } from '../users.gateway'
+import *as usersGateway from '../users.gateway'
 
 
 export const USERS_RECEIVED = "USERS/USERS_RECEIVED";
@@ -13,7 +13,6 @@ const usersReceived = (users) => {
   }
 }
 
-
 const userReceived = (user) => {
   return {
     type: USER_RECEIVED,
@@ -25,19 +24,34 @@ const userReceived = (user) => {
 
 export const getUsers = () => {
   return function (dispatch) {
-    return fetchUsers()
+    return usersGateway.fetchUsers()
       .then((users) => {
         dispatch(usersReceived(users))
       })
   }
 }
 
-
 export const getUser = (userId) => {
   return function (dispatch) {
-    return fetchUser(userId)
+    return usersGateway.fetchUser(userId)
       .then((user) => {
         dispatch(userReceived(user))
       })
   }
 }
+
+export const createUser = ({ name, surname, desc }) => {
+  return function (dispatch) {
+    const taskData = {
+      name,
+      surname,
+      desc,
+    };
+
+    return usersGateway.createUser(taskData)
+      .then(() => {
+        return dispatch(getUsers())
+      })
+  }
+}
+

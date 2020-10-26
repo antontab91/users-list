@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const endpoint = 'https://5f96176711ab98001603a41e.mockapi.io/api/v1/'
+const endpoint = 'https://5f963e1711ab98001603a6b8.mockapi.io/api/v1/'
 // const endpoint = "http://77.120.241.80:8911/api";
 const baseUrl = `${endpoint}/users`;
 
@@ -31,7 +31,7 @@ export const fetchUser = (userId) => {
 }
 
 export const createUser = (userData) => {
-  return axios(baseUrl, {
+  return fetch(baseUrl, {
     method: "POST",
     headers,
     body: JSON.stringify(userData),

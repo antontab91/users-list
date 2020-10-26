@@ -10,7 +10,7 @@ import './userList.scss';
 
 
 const UserList = () => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   const users = useSelector(selectUsers);
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const UserList = () => {
   const firsIndexOnPage = page * usersPerPage; // индекс первого юзера , который показывается на странице 
   const lastIndexOnPage = firsIndexOnPage + usersPerPage; // индекс последнего юзера , который показывается на странице 
   const usersOnPage = users.slice(firsIndexOnPage, lastIndexOnPage); // с какого по какой индекс показываются юзеры на текущей странице
-  const isPrevPageAvailable = page === 1;
+  const isPrevPageAvailable = page === 0;
   const isNextPageAvailable = page === Math.ceil(totalUsers / usersPerPage) - 1;
 
 
@@ -60,7 +60,7 @@ const UserList = () => {
           >
             {isPrevPageAvailable ? "" : "←"}
           </button>
-          <div>page: {page}</div>
+          <div>page: {page + 1}</div>
           <button
             className="btn"
             onClick={goNext}

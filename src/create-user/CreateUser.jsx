@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createUser } from '../user-list/actions';
+
 
 const CreateUser = () => {
   const [newUser, setUser] = useState({
@@ -6,6 +9,8 @@ const CreateUser = () => {
     surname: "",
     desc: "",
   });
+
+  const dispatch = useDispatch();
 
   const handleChangeInputValue = (e) => {
     const { name, value } = e.target;
@@ -19,6 +24,7 @@ const CreateUser = () => {
     e.preventDefault();
     if (newUser.name !== "" && newUser.surname !== "" && newUser.desc !== "") {
       console.log('dsd');
+      dispatch(createUser(newUser))
       setUser({
         name: "",
         surname: "",
